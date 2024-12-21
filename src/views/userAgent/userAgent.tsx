@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 
 export const UserAgent = () => {
   // const { userAgent } = useUserAgentContext();
-  //done by me
   const cookieStore = cookies();
   const userAgent = cookieStore.get("userAgent");
   console.log(userAgent);
