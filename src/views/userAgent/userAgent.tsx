@@ -1,11 +1,12 @@
-"use client";
-
 import { BackToHome } from "@/components/backToHome/backToHome";
-import { useUserAgentContext } from "@/components/providers/userAgentProvider";
+import { cookies } from "next/headers";
+// import { useUserAgentContext } from "@/components/providers/userAgentProvider";
 
 export const UserAgent = () => {
-  const { userAgent } = useUserAgentContext();
-
+  // const { userAgent } = useUserAgentContext();
+  const cookieStore = cookies();
+  const userAgent = cookieStore.get("userAgent");
+  console.log(userAgent);
   return (
     <div>
       <BackToHome />
@@ -14,7 +15,7 @@ export const UserAgent = () => {
         <div className="flex font-mono font-semibold text-sm">
           <div className="border p-2">UserAgent</div>
 
-          <div className="border p-2">{userAgent}</div>
+          <div className="border p-2">{userAgent?.value}</div>
         </div>
       )}
 
