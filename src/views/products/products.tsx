@@ -25,15 +25,13 @@ export const Products: React.FC = () => {
 
   const handleOpenModal = useCallback(
     (product: Product) => {
-      setSelectedProduct(product);
       router.push(`/products?product-id=${product?.id}`, { scroll: false });
     },
     [router]
   );
 
   const handleCloseModal = useCallback(() => {
-    setSelectedProduct(null);
-    router.replace("/products", { scroll: false });
+    router.push("/products", { scroll: false });
   }, [router]);
 
   useEffect(() => {
